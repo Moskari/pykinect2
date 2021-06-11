@@ -1,13 +1,11 @@
 PyKinect2
 =========
 
-[![Build Status](https://travis-ci.org/kiddos/pykinect2.svg?branch=master)](https://travis-ci.org/kiddos/pykinect2)
-
 python wrapper for kinect2 allow easier access of kinect2
 
-## build
+# Install from source
 
-install dependencies from libfreenect2
+Install dependencies from libfreenect2
 
 ```shell
 sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-dev freeglut3-dev libxrandr-dev libxi-dev
@@ -15,28 +13,14 @@ sudo apt-get install libturbojpeg0-dev
 sudo apt-get install libusb-1.0-0-dev
 ```
 
-cmake build
+Copy `90-kinect2.rules` under `/etc/udev/rules.d/` to grant permission for Kinect2 usb
 
+
+Running pip should be enough:
 ```shell
-mkdir build
-cd build
-cmake ..
-make -j
-cd ..
+pip install .
 ```
 
-pip install
-
-
-```shell
-pip install . --user
-```
-
-or
-
-```shell
-sudo pip install .
-```
 
 
 ## Examples
