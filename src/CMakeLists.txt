@@ -12,6 +12,11 @@ include_directories(${CMAKE_BINARY_DIR})
 # SWIG3
 find_package(SWIG REQUIRED)
 find_package(PythonLibs 3 REQUIRED)
+find_package(Python COMPONENTS NumPy REQUIRED)
+
+message(STATUS "Python_NumPy_FOUND: ${Python_NumPy_FOUND}")
+message(STATUS "Python_NumPy_INCLUDE_DIRS: ${Python_NumPy_INCLUDE_DIRS}")
+message(STATUS "Python_NumPy_VERSION: ${Python_NumPy_VERSION}")
 
 # cmake modules from libfreenect
 find_package(OpenCL)
@@ -25,6 +30,7 @@ find_library(VA_DRM  va-drm)
 find_library(GLFW glfw)
 find_library(LIBUSB usb-1.0)
 find_library(JPEG jpeg)
+
 
 set(LIBRARIES "${CMAKE_BINARY_DIR}/third_party/lib/libfreenect2.a")
 if (VA)
@@ -66,13 +72,15 @@ endif ()
 
 message(STATUS "using libraries: ${LIBRARIES}")
 
+
 # enable fPIC
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 message(STATUS "Using PythonLibs ${PYTHONLIBS_VERSION_STRING}")
 include_directories(
   ${PYTHON_INCLUDE_DIR}
-  ${CMAKE_BINARY_DIR}/third_party/include)
+  ${CMAKE_BINARY_DIR}/third_party/include
+  ${Python_NumPy_INCLUDE_DIRS})
 link_directories(${CMAKE_BINARY_DIR}/third_party/lib)
 include(${SWIG_USE_FILE})
 
