@@ -8,7 +8,7 @@ python wrapper for kinect2 allow easier access of kinect2
 Install dependencies from libfreenect2
 
 ```shell
-sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-dev freeglut3-dev libxrandr-dev libxi-dev
+sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo8-dev mesa-common-dev freeglut3-dev libxrandr-dev libxi-dev python3-dev swig
 sudo apt-get install libturbojpeg0-dev
 sudo apt-get install libusb-1.0-0-dev
 ```
